@@ -23,7 +23,7 @@
   <img align="right" width="320" src="./assets/hero.gif" alt="" />
 </picture>
 
-### ▌ whoami
+### ▌ Who-Am-I?
 
 I'm a CS undergrad at **BML Munjal University**. Most of what I build sits at the seam
 between a language model and something real — a one-line prompt that comes back as a
