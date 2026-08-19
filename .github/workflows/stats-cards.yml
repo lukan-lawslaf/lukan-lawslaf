@@ -1,0 +1,65 @@
+# Generates the GitHub stats + top-languages cards as SVG files committed
+# into this repo (./profile/*.svg).
+#
+# Why not the classic https://github-readme-stats.vercel.app/api URL?
+# Because that project is deprecated ("This repository is no longer
+# maintained") and its public instance currently returns
+# 503 DEPLOYMENT_PAUSED. This action is the maintained successor and it
+# renders the same cards locally, so nobody else's uptime can break them.
+
+name: Stats cards
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # 03:17 UTC daily (off the hour — GitHub throttles :00)
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          options: >-
+            username=${{ github.repository_owner }}&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=0D1117&title_color=00E5A0&text_color=E6EDF3&icon_color=00E5A0&ring_color=00E5A0
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          options: >-
+            username=${{ github.repository_owner }}&layout=compact&langs_count=8&hide_border=true&bg_color=0D1117&title_color=00E5A0&text_color=E6EDF3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Draw the streak card
+        # tools/make_cards.py pulls the contribution calendar itself and renders
+        # profile/streak.svg + streak-light.svg. Set a PROFILE_TOKEN secret (a PAT
+        # with read:user) if you want private contributions counted too.
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+          USERNAME_OVERRIDE: ${{ github.repository_owner }}
+        run: python tools/make_cards.py
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          git commit -m "chore: refresh stats cards" || exit 0
+          git push

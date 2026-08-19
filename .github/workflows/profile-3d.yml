@@ -1,0 +1,41 @@
+# Renders the contribution calendar as an isometric 3D city and commits the
+# SVGs to ./profile-3d-contrib/. The README embeds profile-night-rainbow.svg;
+# swap it for any of the other generated files listed below.
+#
+# Generated files:
+#   profile-green-animate.svg   profile-green.svg
+#   profile-season-animate.svg  profile-season.svg
+#   profile-south-season-animate.svg  profile-south-season.svg
+#   profile-night-view.svg      profile-night-green.svg
+#   profile-night-rainbow.svg   profile-gitblock.svg
+
+name: 3D contribution graph
+
+on:
+  schedule:
+    - cron: "41 5 * * *" # 05:41 UTC daily
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-github-profile-3d-contrib
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: yoshi389111/github-profile-3d-contrib@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          MAX_REPOS: 100
+
+      - name: Commit & push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A .
+          if git commit -m "chore: refresh 3D contribution graph"; then
+            git push
+          fi

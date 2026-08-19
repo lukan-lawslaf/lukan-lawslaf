@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="228" viewBox="0 0 840 228" role="img" aria-label="190 contributions since September 2025; current streak 0 days; longest streak 6 days; busiest day 58">
+<rect x="0.5" y="0.5" width="839" height="227" rx="12" fill="#0D1117" stroke="#1E2530"/>
+<path d="M14 14h26M14 14v26" stroke="#00E5A0" stroke-width="3" fill="none" stroke-linecap="square"/>
+<path d="M826 214h-26M826 214v-26" stroke="#7C5CFF" stroke-width="3" fill="none" stroke-linecap="square"/>
+<defs><filter id="gl" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="10"/></filter><linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00E5A0" stop-opacity=".95"/><stop offset="1" stop-color="#00E5A0" stop-opacity=".38"/></linearGradient></defs>
+<line x1="210" y1="38" x2="210" y2="146" stroke="#1E2530"/>
+<line x1="420" y1="38" x2="420" y2="146" stroke="#1E2530"/>
+<line x1="630" y1="38" x2="630" y2="146" stroke="#1E2530"/>
+<text x="105" y="60" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.5" fill="#6E7A8A">TOTAL CONTRIBUTIONS</text>
+<text x="105" y="108" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" fill="#E9EEF5">190</text>
+<text x="105" y="132" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" fill="#6E7A8A">since Sep 2025</text>
+<text x="315" y="60" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.5" fill="#6E7A8A">CURRENT STREAK</text>
+<text x="315" y="108" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" fill="#E9EEF5">0</text>
+<text x="315" y="132" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" fill="#6E7A8A">not today</text>
+<text x="525" y="108" text-anchor="middle" filter="url(#gl)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" fill="#00E5A0" opacity=".5">6</text>
+<text x="525" y="60" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.5" fill="#6E7A8A">LONGEST STREAK</text>
+<text x="525" y="108" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" fill="#00E5A0">6</text>
+<text x="525" y="132" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" fill="#6E7A8A">Jul 13 – Jul 18, 2026</text>
+<text x="735" y="60" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.5" fill="#6E7A8A">BUSIEST DAY</text>
+<text x="735" y="108" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" fill="#E9EEF5">58</text>
+<text x="735" y="132" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" fill="#6E7A8A">Jul 20, 2026</text>
+<line x1="24" y1="162" x2="816" y2="162" stroke="#1E2530"/>
+<text x="24" y="195" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9" letter-spacing="1.4" fill="#6E7A8A">LAST 26</text>
+<text x="24" y="206" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9" letter-spacing="1.4" fill="#6E7A8A">WEEKS</text>
+<rect x="132" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="158" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="184" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="210" y="189" width="21" height="15" rx="3" fill="url(#bar)"/>
+<rect x="236" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="262" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="288" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="314" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="340" y="187" width="21" height="17" rx="3" fill="url(#bar)"/>
+<rect x="366" y="190" width="21" height="14" rx="3" fill="url(#bar)"/>
+<rect x="392" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="418" y="193" width="21" height="11" rx="3" fill="url(#bar)"/>
+<rect x="444" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="470" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="496" y="195" width="21" height="9" rx="3" fill="url(#bar)"/>
+<rect x="522" y="192" width="21" height="12" rx="3" fill="url(#bar)"/>
+<rect x="548" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="574" y="195" width="21" height="9" rx="3" fill="url(#bar)"/>
+<rect x="600" y="188" width="21" height="16" rx="3" fill="url(#bar)"/>
+<rect x="626" y="189" width="21" height="15" rx="3" fill="url(#bar)"/>
+<rect x="652" y="186" width="21" height="18" rx="3" fill="url(#bar)"/>
+<rect x="678" y="172" width="21" height="32" rx="3" fill="url(#bar)"/>
+<rect x="704" y="201" width="21" height="3" rx="3" fill="#171E27"/>
+<rect x="730" y="192" width="21" height="12" rx="3" fill="url(#bar)"/>
+<rect x="756" y="195" width="21" height="9" rx="3" fill="url(#bar)"/>
+<rect x="782" y="191" width="21" height="13" rx="3" fill="url(#bar)"/>
+<text x="816" y="164" text-anchor="end" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9" letter-spacing="1.4" fill="#6E7A8A">PEAK 63/WK</text>
+</svg>

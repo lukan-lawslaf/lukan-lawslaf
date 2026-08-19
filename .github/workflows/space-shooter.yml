@@ -1,0 +1,32 @@
+# Turns the contribution graph into a Galaga-style shooter and commits it as
+# ./game.gif. Denser commit days become tougher enemies.
+#
+# fetch-depth: 2 is REQUIRED — by default v2 amends the previous commit
+# instead of stacking a new one daily, which keeps the repo history clean.
+# Set no-amend: true if you'd rather have one commit per run.
+
+name: Space shooter
+
+on:
+  schedule:
+    - cron: "52 6 * * *" # 06:52 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-game:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2 # required by the amend behaviour below
+
+      - uses: czl9707/gh-space-shooter@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ github.repository_owner }}
+          output-path: game.gif
+          strategy: random
+          commit-message: "chore: refresh space shooter"
