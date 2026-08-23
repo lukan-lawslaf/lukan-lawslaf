@@ -34,12 +34,17 @@ The other half of it is the paranoid half. I like reading code the way an attack
 which is where **VibeSec** came from: a pipeline that finds the vulnerability *and* ships
 the fix, instead of handing you a 40-page PDF and wishing you luck.
 
-Thirty-eight repos in, the pattern is clear enough — I'd rather have a rough thing running
+Lately I've been going the other direction too — instead of calling a model, building one.
+**littleMl** is a 25.6M-parameter transformer with every layer typed out by hand, trained on
+my own laptop until it learned English. The first 24-hour run was silently broken and every
+metric said it was fine, which taught me more than the run that worked.
+
+Thirty-nine repos in, the pattern is clear enough — I'd rather have a rough thing running
 tonight than a clean thing scheduled for next month.
 
-&nbsp;&nbsp;**Building** &nbsp;·&nbsp; [VibeSec](https://github.com/lukan-lawslaf/VibeSec) and [Novelcast](https://github.com/lukan-lawslaf/Novelcast)
+&nbsp;&nbsp;**Building** &nbsp;·&nbsp; [littleMl](https://github.com/lukan-lawslaf/littleMl), [VibeSec](https://github.com/lukan-lawslaf/VibeSec) and [Novelcast](https://github.com/lukan-lawslaf/Novelcast)
 <br />&nbsp;&nbsp;**Learning** &nbsp;·&nbsp; agent orchestration, post-quantum crypto, Flutter
-<br />&nbsp;&nbsp;**Ask me about** &nbsp;·&nbsp; LLM pipelines, prompt injection, Discord bots, why two of my repos end in a hyphen
+<br />&nbsp;&nbsp;**Ask me about** &nbsp;·&nbsp; LLM pipelines, prompt injection, training a model on one GPU, why two of my repos end in a hyphen
 <br />&nbsp;&nbsp;**Fun fact** &nbsp;·&nbsp; I have the YOLO badge. I merged without review. I'd do it again.
 
 <br clear="right" />
@@ -194,6 +199,24 @@ What's happening in space *right now* — live orbital activity, rendered in the
 One Discord bot instead of six: it talks, generates images, makes video, and keeps going.
 
 `Python` `·` `Multimodal` `·` `discord.py`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### [littleMl](https://github.com/lukan-lawslaf/littleMl)
+
+A 25.6M-parameter language model written from scratch — no `transformers`, no pretrained
+anything. Fifteen hours on my laptop GPU until it learned to write English. Fits an ESP32-S3
+in 12 MB.
+
+`PyTorch` `·` `RoPE + SwiGLU` `·` `from scratch`
+
+</td>
+<td width="50%" valign="top">
+
+&nbsp;
 
 </td>
 </tr>
