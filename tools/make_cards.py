@@ -33,7 +33,6 @@ API = "https://api.github.com/graphql"
 QUERY = """
 query($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
-    createdAt
     contributionsCollection(from: $from, to: $to) {
       contributionCalendar {
         totalContributions
@@ -75,29 +74,25 @@ def gql(token, variables):
     return body["data"]["user"]
 
 
-def fetch_days(token, login):
-    """Every contribution day since the account was created, oldest first.
+def fetch_days(token, login, today=None):
+    """Use one explicit, inclusive 365-day contribution calendar.
 
-    contributionsCollection accepts at most a one-year window, so page by
-    calendar year and stitch the results together.
+    Do not stitch calendar years: that produces a lifetime total, which cannot
+    be compared with the profile's last-year graph.
     """
-    today = dt.date.today()
-    probe = gql(token, {"login": login,
-                        "from": f"{today.year}-01-01T00:00:00Z",
-                        "to": f"{today.isoformat()}T23:59:59Z"})
-    start_year = dt.datetime.fromisoformat(probe["createdAt"].replace("Z", "+00:00")).year
-
-    days = {}
-    for year in range(start_year, today.year + 1):
-        to = min(dt.date(year, 12, 31), today)
-        data = gql(token, {"login": login,
-                           "from": f"{year}-01-01T00:00:00Z",
-                           "to": f"{to.isoformat()}T23:59:59Z"})
-        for week in data["contributionsCollection"]["contributionCalendar"]["weeks"]:
-            for d in week["contributionDays"]:
-                days[d["date"]] = d["contributionCount"]
-
-    return [(dt.date.fromisoformat(k), v) for k, v in sorted(days.items())]
+    today = today or dt.datetime.now(dt.timezone.utc).date()
+    start = today - dt.timedelta(days=364)
+    data = gql(token, {"login": login,
+                       "from": f"{start.isoformat()}T00:00:00Z",
+                       "to": f"{today.isoformat()}T23:59:59Z"})
+    calendar = data["contributionsCollection"]["contributionCalendar"]
+    days = sorted(
+        (dt.date.fromisoformat(day["date"]), day["contributionCount"])
+        for week in calendar["weeks"] for day in week["contributionDays"]
+    )
+    if sum(count for _, count in days) != calendar["totalContributions"]:
+        raise ValueError("Calendar days do not match GitHub's contribution total")
+    return days
 
 
 def streaks(days):
@@ -133,7 +128,7 @@ def streaks(days):
 
 def fmt_span(span):
     if not span:
-        return "not today"
+        return "no active streak"
     f = "%b %#d" if os.name == "nt" else "%b %-d"
     a, b = span
     if a == b:
@@ -149,20 +144,19 @@ def fmt_span(span):
 def streak_card(t, total, cur, cur_span, best, best_span, days):
     W, H = 840, 228
     busy_day, busy_n = max(days, key=lambda kv: kv[1])
-    first = next((d for d, c in days if c > 0), days[0][0])
 
     panels = [
-        ("TOTAL CONTRIBUTIONS", f"{total:,}", f"since {first.strftime('%b %Y')}", t["ink"]),
+        ("YEAR CONTRIBUTIONS", f"{total:,}", "last 365 days (UTC)", t["ink"]),
         ("CURRENT STREAK", f"{cur}", fmt_span(cur_span), t["ink"]),
-        ("LONGEST STREAK", f"{best}", fmt_span(best_span), t["mint"]),
+        ("YEAR'S LONGEST", f"{best}", fmt_span(best_span), t["mint"]),
         ("BUSIEST DAY", f"{busy_n:,}", fmt_span((busy_day, busy_day)), t["ink"]),
     ]
     centres = (105, 315, 525, 735)
 
     o = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
-        f'role="img" aria-label="{total:,} contributions since {first.strftime("%B %Y")}; '
-        f'current streak {cur} days; longest streak {best} days; busiest day {busy_n}">',
+        f'role="img" aria-label="{total:,} contributions in the last 365 days (UTC); '
+        f'current streak {cur} days; longest streak {best} days in this period; busiest day {busy_n}">',
         f'<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="12" fill="{t["bg"]}" stroke="{t["line"]}"/>',
         # corner ticks, echoing the banner
         f'<path d="M14 14h26M14 14v26" stroke="{t["mint"]}" stroke-width="3" fill="none" stroke-linecap="square"/>',
