@@ -31,7 +31,7 @@ jobs:
           path: profile/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           options: >-
-            username=${{ github.repository_owner }}&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=0D1117&title_color=00E5A0&text_color=E6EDF3&icon_color=00E5A0&ring_color=00E5A0
+            username=${{ github.repository_owner }}&show_icons=true&hide_border=true&include_all_commits=true&count_private=false&bg_color=0D1117&title_color=00E5A0&text_color=E6EDF3&icon_color=00E5A0&ring_color=00E5A0
 
       - name: Generate top languages card
         uses: stats-organization/github-readme-stats-action@v2
@@ -49,10 +49,10 @@ jobs:
 
       - name: Draw the streak card
         # tools/make_cards.py pulls the contribution calendar itself and renders
-        # profile/streak.svg + streak-light.svg. Set a PROFILE_TOKEN secret (a PAT
-        # with read:user) if you want private contributions counted too.
+        # profile/streak.svg + streak-light.svg. Use the same token as the other
+        # cards so their visibility does not depend on a separate personal token.
         env:
-          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME_OVERRIDE: ${{ github.repository_owner }}
         run: python tools/make_cards.py
 

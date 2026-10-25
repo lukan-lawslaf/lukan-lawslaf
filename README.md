@@ -25,27 +25,24 @@
 
 ### ▌ Who-Am-I?
 
-I'm a CS undergrad at **BML Munjal University**. Most of what I build sits at the seam
-between a language model and something real — a one-line prompt that comes back as a
-bookable itinerary, a novel that comes back as an audiobook with a different voice for
-every character, a pasted snippet that comes back patched.
+I'm a second-year CS undergrad at **BML Munjal University**. I build web apps,
+experiment with local language models, and work on embedded hardware.
 
-The other half of it is the paranoid half. I like reading code the way an attacker would,
-which is where **VibeSec** came from: a pipeline that finds the vulnerability *and* ships
-the fix, instead of handing you a 40-page PDF and wishing you luck.
+Recent projects include **VibeSec**, a security scanner with AI-assisted patch generation;
+**TRIP-AI**, a travel planner with maps and travel API integrations; and **NovelCast**,
+a pipeline for turning novels into multi-voice audiobooks.
 
-Lately I've been going the other direction too — instead of calling a model, building one.
-**littleMl** is a 25.6M-parameter transformer with every layer typed out by hand, trained on
-my own laptop until it learned English. The first 24-hour run was silently broken and every
-metric said it was fine, which taught me more than the run that worked.
+I'm also on the **Robotics Club's technical team**, building ESP32 and Arduino prototypes,
+helping with workshops, and developing web interfaces for club events.
 
-Thirty-nine repos in, the pattern is clear enough — I'd rather have a rough thing running
-tonight than a clean thing scheduled for next month.
+With **littleMl**, I've been learning how language models work by implementing and training
+a small transformer in PyTorch. I enjoy projects where I can build something, test it,
+and understand what went wrong.
 
 &nbsp;&nbsp;**Building** &nbsp;·&nbsp; [littleMl](https://github.com/lukan-lawslaf/littleMl), [VibeSec](https://github.com/lukan-lawslaf/VibeSec) and [Novelcast](https://github.com/lukan-lawslaf/Novelcast)
-<br />&nbsp;&nbsp;**Learning** &nbsp;·&nbsp; agent orchestration, post-quantum crypto, Flutter
-<br />&nbsp;&nbsp;**Ask me about** &nbsp;·&nbsp; LLM pipelines, prompt injection, training a model on one GPU, why two of my repos end in a hyphen
-<br />&nbsp;&nbsp;**Fun fact** &nbsp;·&nbsp; I have the YOLO badge. I merged without review. I'd do it again.
+<br />&nbsp;&nbsp;**Learning** &nbsp;·&nbsp; local LLMs, model training, embedded systems
+<br />&nbsp;&nbsp;**Ask me about** &nbsp;·&nbsp; Python, React/FastAPI apps, ESP32 projects, hackathons
+<br />&nbsp;&nbsp;**Outside the editor** &nbsp;·&nbsp; robotics workshops and hardware debugging
 
 <br clear="right" />
 
@@ -53,7 +50,7 @@ tonight than a clean thing scheduled for next month.
 
 ### ▌ what I build with
 
-The eight I actually open every day:
+Some tools I use across my projects:
 
 <p>
   <img height="46" src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" alt="Python" />
@@ -135,7 +132,7 @@ And the rest of it:
 
 <img src="./assets/rule.png" width="100%" alt="" />
 
-### ▌ things I've shipped
+### ▌ things I've built
 
 <table>
 <tr>
@@ -143,8 +140,8 @@ And the rest of it:
 
 #### [VibeSec](https://github.com/lukan-lawslaf/VibeSec)
 
-An AI security pipeline that doesn't just *find* vulnerabilities — it patches them. Feed it
-a snippet, a repo URL or a live endpoint, get working fixed code back.
+A security scanner for source code, public repositories, and live URLs. Combines static
+analysis and HTTP checks with AI triage and suggested code patches.
 
 `TypeScript` `·` `LLM` `·` `SAST`
 
@@ -153,8 +150,8 @@ a snippet, a repo URL or a live endpoint, get working fixed code back.
 
 #### [TRIP-AI](https://github.com/lukan-lawslaf/TRIP-AI)
 
-One sentence in, a whole trip out — flights, hotels, trains, food and maps stitched into an
-itinerary you can actually follow.
+A travel planner that combines natural-language requests with flight, hotel, train,
+weather, and map integrations to build day-by-day itineraries.
 
 `Python` `·` `Agents` `·` `Maps API`
 
@@ -165,18 +162,18 @@ itinerary you can actually follow.
 
 #### [Novelcast](https://github.com/lukan-lawslaf/Novelcast)
 
-Turns a novel into a living audiobook, casting a distinct voice for every character instead
-of one flat narrator.
+A novel-to-audiobook project using dialogue extraction, character voice assignment,
+and local text-to-speech synthesis.
 
-`TypeScript` `·` `TTS` `·` `Voice cloning`
+`TypeScript` `·` `TTS` `·` `Kokoro`
 
 </td>
 <td width="50%" valign="top">
 
 #### [Lodestone](https://github.com/lukan-lawslaf/Lodestone-)
 
-A study companion with a spine. It sharpens how a student reasons through a problem rather
-than handing over the answer.
+A coding tutor built for Bharat Academix CodeQuest. Uses Socratic questions to help
+students define edge cases and expected behavior before writing code.
 
 `Python` `·` `Socratic prompting`
 
@@ -196,7 +193,7 @@ What's happening in space *right now* — live orbital activity, rendered in the
 
 #### [Echo](https://github.com/lukan-lawslaf/Echo-All-in-one-Discord-bot-)
 
-One Discord bot instead of six: it talks, generates images, makes video, and keeps going.
+A Discord bot project bringing conversational AI and media-generation tools into one place.
 
 `Python` `·` `Multimodal` `·` `discord.py`
 
@@ -207,9 +204,8 @@ One Discord bot instead of six: it talks, generates images, makes video, and kee
 
 #### [littleMl](https://github.com/lukan-lawslaf/littleMl)
 
-A 25.6M-parameter language model written from scratch — no `transformers`, no pretrained
-anything. Fifteen hours on my laptop GPU until it learned to write English. Fits an ESP32-S3
-in 12 MB.
+A small language-model experiment implemented in PyTorch, covering transformer layers,
+tokenization, training, and quantization, with an ESP32-S3 deployment target.
 
 `PyTorch` `·` `RoPE + SwiGLU` `·` `from scratch`
 
@@ -222,7 +218,7 @@ in 12 MB.
 </tr>
 </table>
 
-→ &nbsp;[**the other thirty-two**](https://github.com/lukan-lawslaf?tab=repositories)
+→ &nbsp;[**more projects**](https://github.com/lukan-lawslaf?tab=repositories)
 
 <img src="./assets/rule.png" width="100%" alt="" />
 
@@ -236,12 +232,17 @@ in 12 MB.
 </p>
 
 <!-- streak.svg is drawn by tools/make_cards.py straight from the contributions
-     API — the usual streak widget is a third party that is currently down. -->
+     API using an explicit 365-day contribution calendar. -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./profile/streak.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./profile/streak-light.svg" />
   <img src="./profile/streak.svg" width="100%" alt="Contribution streak" />
 </picture>
+
+<sub>Cards refresh daily. Commit totals and contribution totals measure different things:
+the stats card shows all-time public commits; the streak card covers the last 365 days
+in UTC, including commits, pull requests, issues, and other qualifying activity.
+Private activity and refresh timing can affect comparisons with your signed-in view.</sub>
 
 <details>
 <summary>&nbsp;<b>the trophy shelf</b></summary>
@@ -253,7 +254,7 @@ in 12 MB.
 
 ### ▌ my contribution graph, but as a game
 
-A snake eats a year of my commits. Regenerated nightly by
+A snake eats a year of my contributions. Regenerated nightly by
 [Platane/snk](https://github.com/Platane/snk).
 
 <picture>
@@ -279,7 +280,7 @@ A snake eats a year of my commits. Regenerated nightly by
 
 ### ▌ say hi
 
-Got an idea that sounds slightly unreasonable? Those are my favourite kind.
+Happy to chat about projects, hackathons, robotics, or something you're building.
 
 <a href="https://www.linkedin.com/in/nakul-falswal-6b84a9387">
   <img height="48" src="./assets/social/linkedin.gif" alt="LinkedIn" />
@@ -295,7 +296,7 @@ Got an idea that sounds slightly unreasonable? Those are my favourite kind.
 
 <br /><br />
 
-<i>"Ship it, then read the security advisory." — me, regrettably</i>
+<i>Learning by building, testing, and trying again.</i>
 
 <br /><br />
 
